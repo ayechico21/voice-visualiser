@@ -10,10 +10,13 @@ function Header() {
 }
 
 const Wrapper = styled.div`
-  padding: 8px 16px;
+ 
 `;
 const Name = styled.h1`
   text-align: center;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: var(--primary-theme);
 `;
 
 export default Header;

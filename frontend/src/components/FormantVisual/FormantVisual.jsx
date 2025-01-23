@@ -1,5 +1,6 @@
 import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
+import Canvas from "../Canvas/Canvas";
 
 const FormantVisual = ({ isRecording }) => {
   const canvasRef = React.useRef(null);
@@ -66,17 +67,12 @@ const FormantVisual = ({ isRecording }) => {
   }, [audioContextRef, analyserRef, isRecording]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width="800"
-      height="400"
-      style={{
-        border: "2px solid #555",
-        borderRadius: "8px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)",
-        backgroundColor: "#1e1e1e",
-      }}
-    />
+    <Canvas  ref={canvasRef} style={{
+      border: "2px solid #555",
+      borderRadius: "8px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      backgroundColor: "#1e1e1e",
+    }}/>
   );
 };
 

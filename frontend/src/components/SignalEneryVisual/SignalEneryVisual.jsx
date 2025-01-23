@@ -1,5 +1,6 @@
 import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
+import Canvas from "../Canvas/Canvas";
 
 const SignalEneryVisual = ({ isRecording }) => {
   const canvasRef = React.useRef(null);
@@ -14,8 +15,6 @@ const SignalEneryVisual = ({ isRecording }) => {
       const analyser = analyserRef.current;
       const bufferLength = analyser.fftSize;
       const dataArray = new Uint8Array(bufferLength);
-
-      
 
       function draw() {
         analyser.getByteTimeDomainData(dataArray);
@@ -81,12 +80,9 @@ const SignalEneryVisual = ({ isRecording }) => {
       }
     };
   }, [audioContextRef, analyserRef, isRecording]);
-
   return (
-    <canvas
+    <Canvas
       ref={canvasRef}
-      width="600"
-      height="300"
       style={{
         border: "2px solid #555",
         borderRadius: "8px",

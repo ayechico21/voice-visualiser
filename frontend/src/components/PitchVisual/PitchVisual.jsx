@@ -1,5 +1,6 @@
 import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
+import Canvas from "../Canvas/Canvas";
 
 function PitchVisual({ isRecording }) {
   const canvasRef = React.useRef(null);
@@ -20,12 +21,15 @@ function PitchVisual({ isRecording }) {
       const draw = () => {
         analyser.getByteFrequencyData(dataArray);
 
-        const pitch = autoCorrelate(dataArray, audioContextRef.current.sampleRate);
+        const pitch = autoCorrelate(
+          dataArray,
+          audioContextRef.current.sampleRate
+        );
         const pitchHistory = pitchHistoryRef.current;
         pitchHistory.push(pitch > 0 ? pitch : 0); // Use 0 for undetected pitch
         if (pitchHistory.length > 100) {
           pitchHistory.shift();
-        } 
+        }
 
         canvasContext.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -61,11 +65,14 @@ function PitchVisual({ isRecording }) {
   }, [audioContextRef, analyserRef, isRecording]);
 
   return (
-    <canvas
+    <Canvas
       ref={canvasRef}
-      width="600"
-      height="300"
-      style={{ border: "1px solid black" }}
+      style={{
+        border: "2px solid #555",
+        borderRadius: "8px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        backgroundColor: "#1e1e1e",
+      }}
     />
   );
 }

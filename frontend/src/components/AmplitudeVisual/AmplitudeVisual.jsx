@@ -1,6 +1,6 @@
-
 import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
+import Canvas from "../Canvas/Canvas";
 
 const AmplitudeVisual = ({ isRecording }) => {
   const canvasRef = React.useRef(null);
@@ -77,14 +77,13 @@ const AmplitudeVisual = ({ isRecording }) => {
   }, [audioContextRef, analyserRef, isRecording]);
 
   return (
-    <canvas
+    <Canvas
       ref={canvasRef}
-      width="800"
-      height="400"
       style={{
-        border: "2px solid #2a5298",
+        border: "2px solid #555",
         borderRadius: "8px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        backgroundColor: "#1e1e1e",
       }}
     />
   );
