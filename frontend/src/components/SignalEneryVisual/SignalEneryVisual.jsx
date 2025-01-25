@@ -2,9 +2,11 @@ import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
 import Canvas from "../Canvas/Canvas";
 
-const SignalEneryVisual = ({ isRecording }) => {
+function SignalEneryVisual({ isRecording }) {
   const canvasRef = React.useRef(null);
-  const { audioContextRef, analyserRef, isMicInitialized } = useMicAudio({isRecording});
+  const { audioContextRef, analyserRef, isMicInitialized } = useMicAudio({
+    isRecording,
+  });
   const animationFrameIdRef = React.useRef(null);
   const volumeHistoryRef = React.useRef([]); // Keep track of volume history
 
@@ -72,7 +74,7 @@ const SignalEneryVisual = ({ isRecording }) => {
       draw();
     }
 
-   run();
+    run();
     return () => {
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current);
@@ -90,7 +92,7 @@ const SignalEneryVisual = ({ isRecording }) => {
       }}
     />
   );
-};
+}
 
 const calculateRMS = (dataArray) => {
   let sum = 0;

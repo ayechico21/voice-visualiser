@@ -6,6 +6,13 @@ import ZcrVisual from "..//ZcrVisual/ZcrVisual";
 import PitchVisual from "..//PitchVisual/PitchVisual";
 import FormantVisual from "..//FormantVisual/FormantVisual";
 import styled from "styled-components";
+import SpectralCentroidVisual from "../SpectralCentroidVisual/SpectralCentroidVisual";
+import SpectralBandwidthVisual from "../SpectralBandwidthVisual/SpectralBandwidthVisual";
+import HarmonicsToNoiseVisual from "../HnrVisual/HnrVisual";
+import MFCCVisual from "../MfccVisual/MfccVisual";
+import PitchEnergyStdVisual from "../PitchEnergyStdVisual/PitchEnergyStdVisual";
+import JitterVisual from "../JitterVisual/JitterVisual";
+import ShimmerVisual from "../ShimmerVisual/ShimmerVisual";
 
 function Visuals({ isRecording }) {
   return (
@@ -135,6 +142,152 @@ function Visuals({ isRecording }) {
             changes, providing an intuitive way to analyze the behavior of
             sounds based on their waveform characteristics.
           </p>
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <SpectralCentroidVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Spectral Centroid Visual</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <SpectralBandwidthVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Spectral Bandwidth Visual</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <HarmonicsToNoiseVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Harmonic To Noise </VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <MFCCVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Mel-Frequency Cepstral Coefficients</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <PitchEnergyStdVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Pitch Energy Standard deviation</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+
+      <VisualWrapper>
+        <JitterVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Jitter</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
+        </VisualInfoWrapper>
+      </VisualWrapper>
+      <VisualWrapper>
+        <ShimmerVisual isRecording={isRecording} />
+        <VisualInfoWrapper>
+          <VisualHeading>Shimmer</VisualHeading>
+          {/* <p>
+            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
+            represents the rate at which the audio signal crosses the zero line
+            in its waveform. Essentially, it counts how many times the audio
+            signal changes direction from positive to negative or vice versa,
+            showing this as a bar that fluctuates in real time based on the
+            sound you're recording.
+          </p>
+          <p>
+            In summary, the Zero-Crossing Rate visualizer helps you "see" the
+            structure and texture of the audio in terms of its frequency of
+            changes, providing an intuitive way to analyze the behavior of
+            sounds based on their waveform characteristics.
+          </p> */}
         </VisualInfoWrapper>
       </VisualWrapper>
     </div>
