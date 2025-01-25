@@ -4,11 +4,12 @@ import Canvas from "../Canvas/Canvas";
 
 function PitchVisual({ isRecording }) {
   const canvasRef = React.useRef(null);
-  const [audioContextRef, analyserRef] = useMicAudio();
+  const { audioContextRef, analyserRef, isMicInitialized } = useMicAudio({isRecording});
   const animationFrameIdRef = React.useRef(null);
   const pitchHistoryRef = React.useRef([]); // Track pitch history
 
   React.useEffect(() => {
+    if (!isMicInitialized || !isRecording) return;
     function run() {
       const canvas = canvasRef.current;
       const canvasContext = canvas.getContext("2d");
@@ -54,15 +55,13 @@ function PitchVisual({ isRecording }) {
       };
       draw();
     }
-    if (isRecording) {
-      run();
-    }
+   run();
     return () => {
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current);
       }
     };
-  }, [audioContextRef, analyserRef, isRecording]);
+  }, [audioContextRef, analyserRef, isRecording, isMicInitialized]);
 
   return (
     <Canvas

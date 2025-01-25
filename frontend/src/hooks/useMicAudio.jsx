@@ -1,10 +1,12 @@
 import React from "react";
 
-function useMicAudio({ frequencyResolution = 2048 } = {}) {
+function useMicAudio({ isRecording, frequencyResolution = 2048 } = {}) {
   const audioContextRef = React.useRef(null);
   const analyserRef = React.useRef(null);
+  const [isMicInitialized, setIsMicInitialized] = React.useState(false);
 
   React.useEffect(() => {
+    if (!isRecording) return;
     async function initializeAudio() {
       try {
         // Request microphone access
@@ -23,6 +25,7 @@ function useMicAudio({ frequencyResolution = 2048 } = {}) {
 
         audioContextRef.current = audioContext;
         analyserRef.current = analyser;
+        setIsMicInitialized(true);
       } catch (e) {
         console.error("Error accessing microphone:", e);
       }
@@ -30,7 +33,7 @@ function useMicAudio({ frequencyResolution = 2048 } = {}) {
     initializeAudio();
   });
 
-  return [audioContextRef, analyserRef];
+  return { audioContextRef, analyserRef, isMicInitialized };
 }
 
 export default useMicAudio;

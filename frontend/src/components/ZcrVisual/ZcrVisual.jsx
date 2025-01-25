@@ -1,13 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import useMicAudio from "../../hooks/useMicAudio";
 import Canvas from "../Canvas/Canvas";
 
 const ZcrVisual = ({ isRecording }) => {
-  const canvasRef = useRef(null);
-  const [audioContextRef, analyserRef] = useMicAudio();
-  const animationFrameIdRef = useRef(null);
+  const canvasRef = React.useRef(null);
+  const { audioContextRef, analyserRef, isMicInitialized } = useMicAudio({
+    isRecording,
+  });
+  const animationFrameIdRef = React.useRef(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    if (!isMicInitialized || !isRecording) return;
     function run() {
       const canvas = canvasRef.current;
       const canvasContext = canvas.getContext("2d");
@@ -41,16 +44,14 @@ const ZcrVisual = ({ isRecording }) => {
       draw();
     }
 
-    if (isRecording) {
-      run();
-    }
+    run();
 
     return () => {
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current);
       }
     };
-  }, [audioContextRef, analyserRef, isRecording]);
+  }, [audioContextRef, analyserRef, isRecording, isMicInitialized]);
 
   return (
     <Canvas

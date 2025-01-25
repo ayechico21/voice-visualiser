@@ -4,10 +4,11 @@ import Canvas from "../Canvas/Canvas";
 
 const AmplitudeVisual = ({ isRecording }) => {
   const canvasRef = React.useRef(null);
-  const [audioContextRef, analyserRef] = useMicAudio();
+  const { audioContextRef, analyserRef, isMicInitialized } = useMicAudio({isRecording});
   const animationFrameIdRef = React.useRef(null);
 
   React.useEffect(() => {
+    if (!isMicInitialized || !isRecording) return;
     function run() {
       const canvas = canvasRef.current;
       const canvasContext = canvas.getContext("2d");
@@ -66,15 +67,13 @@ const AmplitudeVisual = ({ isRecording }) => {
       }
       draw();
     }
-    if (isRecording) {
-      run();
-    }
+   run();
     return () => {
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current);
       }
     };
-  }, [audioContextRef, analyserRef, isRecording]);
+  }, [audioContextRef, analyserRef, isRecording, isMicInitialized]);
 
   return (
     <Canvas

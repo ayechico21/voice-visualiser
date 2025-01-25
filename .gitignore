@@ -47,3 +47,6 @@ backend/__pycache__/
 
 # Windows specific
 Thumbs.db
+
+# Local Netlify folder
+.netlify
