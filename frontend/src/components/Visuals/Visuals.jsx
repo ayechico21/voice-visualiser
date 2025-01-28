@@ -16,7 +16,7 @@ import ShimmerVisual from "../ShimmerVisual/ShimmerVisual";
 
 function Visuals({ isRecording }) {
   return (
-    <div>
+    <Wrapper>
       <VisualWrapper>
         <FrequencyVisual isRecording={isRecording} />
         <VisualInfoWrapper>
@@ -149,20 +149,18 @@ function Visuals({ isRecording }) {
         <SpectralCentroidVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Spectral Centroid Visual</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The Spectral Centroid Visualizer shows the "center of mass" of audio
+            frequencies in real time. A moving vertical line represents where
+            most of the sound's energy lies, with low frequencies on the left
+            and high frequencies on the right, visualizing the sound’s tonal
+            balance.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            Simply put, it helps you see whether a sound is bass-heavy or
+            treble-rich, offering an interactive way to explore the tonal
+            properties of audio.
+          </p>
         </VisualInfoWrapper>
       </VisualWrapper>
 
@@ -170,62 +168,61 @@ function Visuals({ isRecording }) {
         <SpectralBandwidthVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Spectral Bandwidth Visual</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The Spectral Bandwidth Visualizer displays both the center and the
+            spread of audio frequencies. A vertical line represents the spectral
+            centroid, or "center of mass," while a shaded region around it shows
+            the spectral bandwidth—the range of frequencies in the sound. This
+            allows you to see how concentrated or dispersed the sound is across
+            the frequency spectrum.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            Simply put, the visualizer reveals the "shape" of sound, whether
+            it's narrow and focused like a pure tone, or broad and rich like
+            complex music, offering a dynamic, real-time view of the sound's
+            clarity and texture.
+          </p>
         </VisualInfoWrapper>
       </VisualWrapper>
 
-      <VisualWrapper>
+      {/* <VisualWrapper>
         <HarmonicsToNoiseVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Harmonic To Noise </VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The Harmonics-to-Noise Ratio (HNR) Visualizer displays a vertical
+            bar that shows the balance between harmonic (organized) and noise
+            (random) components in sound. A taller bar indicates a clearer, more
+            melodic sound, while a shorter bar suggests more noise or less
+            harmonic content.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            Simply put, the HNR Visualizer helps you assess the purity of sound
+            by visualizing its tonal structure. It’s ideal for analyzing vocals,
+            music, or environmental noise, providing insight into how "clean" or
+            "noisy" the sound is.
+          </p>
         </VisualInfoWrapper>
-      </VisualWrapper>
+      </VisualWrapper> */}
 
       <VisualWrapper>
         <MFCCVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Mel-Frequency Cepstral Coefficients</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The MFCC Visualizer transforms audio input into a dynamic heatmap,
+            where each bar represents a unique Mel-Frequency Cepstral
+            Coefficient (MFCC). These values capture essential information about
+            the sound’s frequency and energy, aiding in the analysis of tonal
+            and timbral characteristics, particularly for speech and audio
+            recognition.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            In simpler terms, the MFCC Visualizer breaks down audio into its
+            core components, mimicking human sound perception. By visualizing
+            this data, it helps uncover patterns in speech, music, or other
+            audio signals.
+          </p>
         </VisualInfoWrapper>
       </VisualWrapper>
 
@@ -233,20 +230,20 @@ function Visuals({ isRecording }) {
         <PitchEnergyStdVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Pitch Energy Standard deviation</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The Pitch and Energy Standard Deviation Visualizer analyzes the
+            variability in pitch and energy of an audio signal over time. It
+            computes the fundamental frequency (pitch) and short-term energy,
+            then calculates their standard deviations to measure the stability
+            or variability of the sound.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            The visualization shows two bars—one for pitch variability and one
+            for energy variability. The height of each bar represents the
+            standard deviation, providing real-time feedback on sound
+            consistency, which is useful for speech analysis, music evaluation,
+            and acoustic studies.
+          </p>
         </VisualInfoWrapper>
       </VisualWrapper>
 
@@ -254,45 +251,44 @@ function Visuals({ isRecording }) {
         <JitterVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Jitter</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The JitterVisual component visualizes jitter, or variations in pitch
+            frequency, in real-time audio recordings. Using the Web Audio API,
+            it analyzes pitch fluctuations and displays them as a dynamic jitter
+            bar on a canvas, making it easy to track subtle tonal changes,
+            especially in speech or music.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            Essentially, the JitterVisual monitors pitch variation over time,
+            revealing how much the pitch "wobbles." This makes it useful for
+            speech analysis, music processing, or detecting inconsistencies in
+            live audio.
+          </p>
         </VisualInfoWrapper>
       </VisualWrapper>
-      <VisualWrapper>
+      {/* <VisualWrapper>
         <ShimmerVisual isRecording={isRecording} />
         <VisualInfoWrapper>
           <VisualHeading>Shimmer</VisualHeading>
-          {/* <p>
-            The Zero-Crossing Rate (ZCR) visualizer displays a graph that
-            represents the rate at which the audio signal crosses the zero line
-            in its waveform. Essentially, it counts how many times the audio
-            signal changes direction from positive to negative or vice versa,
-            showing this as a bar that fluctuates in real time based on the
-            sound you're recording.
+          <p>
+            The ShimmerVisual component visualizes shimmer, which refers to
+            variations in amplitude in audio signals, especially in speech or
+            vocals. It processes real-time audio to generate a dynamic display,
+            where the height of the shimmer bar reflects the degree of amplitude
+            fluctuation, helping to track loudness and energy changes.
           </p>
           <p>
-            In summary, the Zero-Crossing Rate visualizer helps you "see" the
-            structure and texture of the audio in terms of its frequency of
-            changes, providing an intuitive way to analyze the behavior of
-            sounds based on their waveform characteristics.
-          </p> */}
+            By analyzing consecutive amplitude peaks, the ShimmerVisual reveals
+            patterns in volume variation, making it useful for applications like
+            speech analysis or audio processing.
+          </p>
         </VisualInfoWrapper>
-      </VisualWrapper>
-    </div>
+      </VisualWrapper> */}
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.main``;
 
 const VisualWrapper = styled.section`
   display: flex;
